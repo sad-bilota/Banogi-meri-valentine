@@ -1,0 +1,466 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("heart-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: "Pixelify Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+/* ============= SIGNUP PAGE ============= */
+#signup-container {
+    text-align: center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.signup-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+.signup-card h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#name-input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "Pixelify Sans", sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#name-input:focus {
+    border-color: #ff69b4;
+}
+
+#error-message {
+    color: #ff4444;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    min-height: 20px;
+}
+
+#signup-btn {
+    width: 100%;
+    padding: 12px 25px;
+    font-size: 20px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+#signup-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ============= ENVELOPE SCREEN ============= */
+#envelope-container {
+    text-align: center;
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope {
+    width: 200px;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#envelope-container p {
+    font-size: 40px;
+    margin: 0;
+}
+
+/* ============= ALL LETTER PAGES ============= */
+#page1-container,
+#page2-container,
+#page3-container,
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.letter-window {
+    width: 90vw;
+    max-width: 800px;
+    min-height: 500px;
+    aspect-ratio: 3/2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    gap: 15px;
+    padding-top: 180px;
+    padding-bottom: 100px;
+    position: relative;
+
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0 20px;
+    line-height: 1.3;
+}
+
+p {
+    font-size: 40px;
+}
+
+#user-name-1,
+#user-name-3 {
+    color: inherit;
+}
+
+/* ============= CAT IMAGES ============= */
+.cat,
+.cat-static {
+    width: 250px;
+    margin: 10px 0;
+    transition: width 0.4s ease;
+}
+
+.letter-window.final .cat {
+    width: 180px;
+}
+
+/* ============= BUTTONS ============= */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    margin: 15px 0;
+}
+
+.no-wrapper {
+    position: relative;
+}
+
+.btn {
+    width: 120px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn {
+    width: 120px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Static No Button (Pages 1 & 2) */
+.no-btn-static {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.no-btn-static:hover {
+    transform: scale(1.1);
+}
+
+/* Moving No Button (Page 3) */
+.no-btn {
+    width: 120px;
+    height: auto;
+    z-index: 1;
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+/* ============= FINAL TEXT ============= */
+.final-text {
+    font-size: 22px;
+    line-height: 1.4;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255, 240, 240, 0.5);
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+/* ============= REPLAY BUTTON ============= */
+.replay-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 18px;
+    background: white;
+    color: #ff69b4;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.replay-btn:hover {
+    background: #ff69b4;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ============= FOOTER ============= */
+.footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    text-align: center;
+    z-index: 1000;
+}
+
+#signup-container .footer,
+#envelope-container .footer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.footer p {
+    font-size: 18px;
+    margin: 0;
+    color: #ff1493;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 105, 180, 0.3);
+    display: inline-block;
+}
+
+/* ============= MOBILE RESPONSIVE ============= */
+@media (max-width: 768px) {
+    .signup-card {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+
+    .signup-card h1 {
+        font-size: 28px;
+    }
+
+    #name-input {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    #signup-btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: 24px !important;
+        padding: 0 10px;
+    }
+
+    #envelope {
+        width: 150px;
+    }
+
+    #envelope-container p {
+        font-size: 32px;
+    }
+
+    .letter-window {
+        padding-top: 140px;
+        padding-bottom: 80px;
+        min-height: 400px;
+    }
+
+    .cat,
+    .cat-static {
+        width: 180px;
+    }
+
+    .btn,
+    .yes-btn,
+    .no-btn-static,
+    .no-btn {
+        width: 100px;
+    }
+
+    .buttons {
+        gap: 20px;
+    }
+
+    .final-text {
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+
+    .footer p {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+
+    .replay-btn {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-card h1 {
+        font-size: 24px;
+    }
+
+    #name-input {
+        font-size: 14px;
+    }
+
+    #signup-btn {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 20px !important;
+    }
+
+    #envelope {
+        width: 120px;
+    }
+
+    #envelope-container p {
+        font-size: 28px;
+    }
+
+    .letter-window {
+        padding-top: 120px;
+        padding-bottom: 70px;
+    }
+
+    .cat,
+    .cat-static {
+        width: 150px;
+    }
+
+    .btn,
+    .yes-btn,
+    .no-btn-static,
+    .no-btn {
+        width: 90px;
+    }
+
+    .buttons {
+        gap: 15px;
+    }
+
+    .final-text {
+        font-size: 16px;
+    }
+
+    .footer p {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+}
+
+/* ============= LANDSCAPE MODE ON MOBILE ============= */
+@media (max-height: 600px) and (orientation: landscape) {
+    .letter-window {
+        padding-top: 100px;
+        padding-bottom: 60px;
+        min-height: 300px;
+    }
+
+    .cat,
+    .cat-static {
+        width: 120px;
+    }
+
+    h1 {
+        font-size: 20px !important;
+    }
+
+    .btn,
+    .yes-btn,
+    .no-btn-static,
+    .no-btn {
+        width: 80px;
+    }
+
+    .footer {
+        bottom: 10px;
+    }
+}

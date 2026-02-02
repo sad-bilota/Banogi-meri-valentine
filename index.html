@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Valentine Letter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Audio Elements -->
+    <audio id="music1" loop>
+      <source src="music1.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="music2" loop>
+      <source src="music2.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Signup Page -->
+    <div id="signup-container">
+      <div class="signup-card">
+        <h1>Sign up to my heart 💖</h1>
+        <input 
+          type="text" 
+          id="name-input" 
+          placeholder="Enter your lovely name..."
+          autocomplete="off"
+        />
+        <p id="error-message"></p>
+        <button id="signup-btn">Enter my heart 💕</button>
+      </div>
+      <footer class="footer">
+        <p>Made with ♡ by Manas </p>
+      </footer>
+    </div>
+
+    <!-- Envelope Screen -->
+    <div id="envelope-container">
+      <img src="envelope.png" alt="Envelope" id="envelope" />
+      <p>♡ Letter for You ♡</p>
+      <footer class="footer">
+        <p>Made with ♡ by Manas </p>
+      </footer>
+    </div>
+
+    <!-- Page 1: First Proposal (No button STAYS STILL) -->
+    <div id="page1-container">
+      <div class="letter-window">
+        <h1 id="letter-title">Will you be my Valentine, <span id="user-name-1"></span>?</h1>
+
+        <img src="cat-happy.webp" class="cat-static" alt="Happy Cat" />
+
+        <div class="buttons">
+          <img src="yes.png" class="btn yes-btn" id="page1-yes" alt="Yes" />
+          <img src="no.png" class="btn no-btn-static" id="page1-no" alt="No" />
+        </div>
+
+        <footer class="footer">
+          <p>Made with ♡ by Manas </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Page 2: Are you sure? (No button STAYS STILL) -->
+    <div id="page2-container">
+      <div class="letter-window">
+        <h1 id="letter-title">Are you sure?</h1>
+
+        <img src="cat-crying.webp" class="cat-static" alt="Crying Cat" />
+
+        <div class="buttons">
+          <img src="yes.png" class="btn yes-btn" id="page2-yes" alt="Yes" />
+          <img src="no.png" class="btn no-btn-static" id="page2-no" alt="No" />
+        </div>
+
+        <footer class="footer">
+          <p>Made with ♡ by Manas </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Page 3: Last time pooch raha hoon (No button TELEPORTS) -->
+    <div id="page3-container">
+      <div class="letter-window">
+        <h1 id="letter-title">Last time pooch raha hoon, <span id="user-name-3"></span><br/>Will you be my Valentine?</h1>
+
+        <img src="cat_heart.gif" class="cat" alt="Cat" />
+
+        <div class="buttons" id="page3-buttons">
+          <img src="yes.png" class="btn yes-btn" id="page3-yes" alt="Yes" />
+          
+          <div class="no-wrapper" id="no-wrapper-page3">
+            <img src="no.png" class="btn no-btn" id="page3-no" alt="No" />
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p>Made with ♡ by Manas </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Final Success Screen -->
+    <div id="letter-container">
+      <div class="letter-window">
+        <h1 id="letter-title">Pata thaa hehehehehe!!</h1>
+
+        <img src="cat_dance.gif" class="cat" id="letter-cat" />
+
+        <p id="final-text" class="final-text">
+          <strong>Valentine Date:</strong> Meow Restaurant at 7pm. Dress fancy! 💕
+        </p>
+
+        <button id="replay-btn" class="replay-btn">↺ Replay</button>
+
+        <footer class="footer">
+          <p>Made with ♡ by Manas </p>
+        </footer>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
